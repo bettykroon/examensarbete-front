@@ -18,7 +18,7 @@ export function Admin(){
 
     const [ inventory, setInventory ] = useState<Inventory[]>([]);
     function getInventory(){
-        fetch("http://localhost:3000/users", {
+        fetch("https://kroonscocktails.onrender.com/users", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export function Admin(){
     const [ showUpdateModule, setShowUpdateModule ] = useState(false);
     function toggleUpdateModule(drink: string){
         setShowUpdateModule(!showUpdateModule);
-        fetch("http://localhost:3000/users/" + drink, {
+        fetch("https://kroonscocktails.onrender.com/users/" + drink, {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export function Admin(){
     }
 
     function updateProduct(){                
-        fetch("http://localhost:3000/users/update", {
+        fetch("https://kroonscocktails.onrender.com/users/update", {
             method: "PUT",
             headers : { 
                 'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export function Admin(){
     function removeProduct(){
         let data = {id: productID};
 
-        fetch("http://localhost:3000/users/remove", {
+        fetch("https://kroonscocktails.onrender.com/users/remove", {
             method: "PUT",
             headers : { 
                 'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ export function Admin(){
     const [ buttonText,  setButtonText ] = useState('Andra cocktails');
     const [ headerText,  setHeaderText ] = useState('Nuvarande drinkar i lager');
     function showOtherCocktails() {
-        fetch("http://localhost:3000/users/notAvailable", {
+        fetch("https://kroonscocktails.onrender.com/users/notAvailable", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',

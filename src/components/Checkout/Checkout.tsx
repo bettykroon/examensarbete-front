@@ -69,7 +69,7 @@ export function Checkout(){
     function klarnaCheckout(){
         setOrderLines();
 
-        fetch("http://localhost:3000/klarna/klarna", {
+        fetch("https://kroonscocktails.onrender.com/klarna/klarna", {
             method: "POST",
             headers : { 
                 'Content-Type': 'application/json',

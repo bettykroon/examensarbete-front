@@ -19,7 +19,7 @@ export function Home() {
     const [ inventory, setInventory ] = useState<Inventory[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/users", {
+        fetch("https://kroonscocktails.onrender.com/users", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',

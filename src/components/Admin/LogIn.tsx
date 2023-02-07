@@ -15,7 +15,7 @@ export function LogIn(){
 
     const [ errorMessage, setErrorMessage ] = useState(false);
     function logIn(){        
-        fetch("http://localhost:3000/admin/", {
+        fetch("https://kroonscocktails.onrender.com/admin/", {
             method: "POST",
             headers : { 
                 'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ export function CocktailInfo(){
     const [ allCocktails, setAllCocktails ] = useState<Inventory[]>([]);
 
     useEffect(() => {        
-        fetch("http://localhost:3000/users/" + drink, {
+        fetch("https://kroonscocktails.onrender.com/users/" + drink, {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export function CocktailInfo(){
             }
         })
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://kroonscocktails.onrender.com/users", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
