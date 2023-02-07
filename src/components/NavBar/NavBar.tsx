@@ -11,8 +11,14 @@ export function NavBar() {
 
     useEffect(() => {
         if (localStorage.getItem('order') || '') {
-            let test = JSON.parse(localStorage.getItem('order') || '');
-            setProductsInCart(test.length);
+            let order = JSON.parse(localStorage.getItem('order') || '');
+
+            let amount = 0;
+            for (let i = 0; i < order.length; i++) {
+                console.log(order[i].amount)
+                amount += order[i].amount;
+            }
+            setProductsInCart(amount);
         }
     }, [])
 
@@ -26,7 +32,7 @@ export function NavBar() {
         <div className="navbar">
             <Link id="company-name" to='/'><H2>Kroons Cocktails</H2></Link>
 
-            <img src={logotype} alt="logotype" />
+            <Link id="logotype" to='/'><img src={logotype} alt="logotype" /></Link>
 
             <nav>
                 <Link to='/'><H3>Hem</H3></Link>
@@ -62,7 +68,7 @@ export function NavBar() {
                 <Link to='/' onClick={toggleMenu}><H3>Hem</H3></Link>
                 <Link to='/om-oss' onClick={toggleMenu}><H3>Om oss</H3></Link>
                 <Link to='/kontakt' onClick={toggleMenu}><H3>Kontakt</H3></Link>
-                <Link to='/varukorg' id="shoppingCart" onClick={toggleMenu}>
+                <Link to='/varukorg' onClick={toggleMenu}>
                     <svg width="51" height="57" viewBox="0 0 51 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="40.5" cy="10.5" r="10" stroke="white"/>
                         {productsInCart > 0 && <text x="80%" y="26%" textAnchor="middle" fill="white">{productsInCart}</text>}
