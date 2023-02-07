@@ -1,6 +1,5 @@
 import './Contact.scss';
 import header from '../../images/header2.jpg';
-import person from '../../images/person.jpg';
 import { Header } from '../../styledComponents/Header';
 import { H3, P } from '../../styledComponents/Headings';
 
@@ -27,8 +26,6 @@ export function Contact() {
 
                         <H3>Mail</H3>
                         <a href="mailto:jacob.kroon@me.com">jacob.kroon@me.com</a>
-
-                        <img src="" alt="" />
                     </div>
                 </div>
 
