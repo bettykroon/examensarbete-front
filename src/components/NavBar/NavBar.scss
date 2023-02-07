@@ -16,6 +16,20 @@
     #menuIcon {
         cursor: pointer;
     }
+
+    .smallScreenMenu {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: block;
+            text-align: center;
+
+            svg {
+                width: 60%;
+            }
+        }
+    }
 }
 
 .hamburgerMenu {
@@ -70,13 +84,14 @@
             width: 50px;
         }
         
+        .smallScreenMenu {
+            display: none;
+        }
+
         nav {
             display: flex;
             align-items: center;
 
-            #menuIcon {
-                display: none;
-            }
 
             a {
                 display: block;

@@ -40,9 +40,18 @@ export function NavBar() {
                     </svg>
                 </Link>
 
-                <FontAwesomeIcon id="menuIcon" icon={faBars} onClick={toggleMenu}/>
             </nav>
 
+            <div className="smallScreenMenu">
+                <Link to='/varukorg'>
+                    <svg width="51" height="57" viewBox="0 0 51 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40.5" cy="10.5" r="10" stroke="black"/>
+                        {productsInCart > 0 && <text x="80%" y="26%" textAnchor="middle" fill="black">{productsInCart}</text>}
+                        <path d="M1 9.95776H6.02817L11.9838 15.2817M25.5493 27.4085V50.4789M25.5493 27.4085L32.3521 20.6057M25.5493 27.4085L11.9838 15.2817M25.5493 50.4789L16.9718 55.5071H32.3521L25.5493 50.4789ZM28.2113 15.2817H11.9838" stroke="black" strokeLinecap="round"/>
+                    </svg>
+                </Link>
+                <FontAwesomeIcon id="menuIcon" icon={faBars} onClick={toggleMenu}/>
+            </div>
         </div>
         
         {display && <div className="hamburgerMenu">
