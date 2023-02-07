@@ -1,4 +1,8 @@
 .adminPage{
+    a, button {
+        color: #2c2729;
+    }
+    
     header {
         background-color: #2c2729;
         padding: 20px;
@@ -83,6 +87,11 @@
                     box-sizing: border-box;
                     resize: none;
                     height: auto;
+                }
+
+                label {
+                    display: block;
+                    text-align: start;
                 }
 
                 &-buttons {

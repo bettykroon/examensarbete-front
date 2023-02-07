@@ -234,8 +234,10 @@ export function Admin(){
 
                         <textarea rows={10} name="description" value={cocktail.description} onChange={handleChange}></textarea>
                         
+                        <label htmlFor="price">Pris</label>
                         <input type="text" name="price" value={cocktail.price} onChange={handleChange}/>
                         
+                        <label htmlFor="quantity">Antal</label>
                         <input type="text" name="quantity" value={cocktail.quantity} onChange={handleChange}/>
                         
                         <label htmlFor="visible">Synas på hemsidan?</label>
