@@ -1,6 +1,8 @@
 .checkoutPage {
-    background-color: white;
-
+    a, button {
+        color: #2c2729;
+    }
+    
     &-content {
         padding: 10px;
 
