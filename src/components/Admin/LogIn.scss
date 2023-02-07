@@ -1,0 +1,50 @@
+.loginPage {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2c2729;
+
+    form {
+        position: absolute;
+        width: 350px;
+        padding: 40px;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        box-shadow: 0px 4px 9px -2px #ccc;
+        background-color: #feffff;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: red;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .loginPage {
+        form {
+            width: 500px;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: PlayfairDisplay;
+    src: url(../src/fonts/PlayfairDisplay-Regular.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: PlayfairDisplay;
+}
+
+svg, button {
+    cursor: pointer;
+}

@@ -1,0 +1,174 @@
+.cocktailInfoPage {
+    &-info {
+        padding: 20px;
+
+        a {
+            display: block;
+            max-width: 300px;
+            margin: auto;
+            
+            button {
+                width: 100px;
+            }
+        }
+
+        .cocktailInfo-text {
+            max-width: 300px;
+            margin: auto;
+        }
+        
+        img {
+            width: 300px;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .decreaseIncrease {
+            margin-bottom: 10px;
+
+            h3 {
+                display: inline;
+            }
+            
+            button {
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+            }
+        }
+        
+        .description {
+            margin-top: 20px;
+        }
+    }
+    
+    &-youMightAlsoLike {
+        background-color: #9a8e83;
+        padding: 10px 20px;
+        color: #feffff;
+        text-align: center;
+
+        .otherProducts {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 60px;
+            
+            a {
+                text-decoration: none;
+                color: #feffff;
+            }
+
+            img {
+                width: 150px;
+            }
+
+            h4 {
+                max-width: 150px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cocktailInfoPage {
+        &-info {
+            a {
+                max-width: 700px;
+            }
+
+            .cocktailInfo {
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+
+                &-text {
+                    padding-top: 20px;
+                    max-width: 350px;
+                    margin: 0;
+                }
+            }
+
+            .description {
+                margin-bottom: 40px;
+            }
+        }
+        
+        &-youMightAlsoLike {    
+            .otherProducts {
+                img {
+                    width: 200px;
+                }
+    
+                h4 {
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .cocktailInfoPage {
+        &-info {
+            a {
+                max-width: 750px;
+            }
+
+            img {
+                width: 350px;
+            }
+        }
+        
+        &-youMightAlsoLike {    
+            .otherProducts {
+                img {
+                    width: 250px;
+                }
+    
+                h4 {
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .cocktailInfoPage {
+        &-info {
+            a {
+                max-width: 950px;
+            }
+
+            img {
+                width: 400px;
+            }
+
+            .cocktailInfo {
+                gap: 100px;
+
+                &-text {
+                    max-width: 450px;
+                }
+            }
+        }
+        
+        &-youMightAlsoLike {  
+            .otherProducts {
+                gap: 20px 100px;
+
+                img {
+                    width: 250px;
+                }
+
+                h4 {
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+}

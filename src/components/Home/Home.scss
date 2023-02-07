@@ -1,0 +1,232 @@
+.homePage {
+    &-header {
+        position: relative;
+        display: flex;
+        
+        img {
+            width: 100vw;
+        }
+        
+        div {
+            position: absolute;
+            color: #feffff;
+            width: 45%;
+            top: 50%;
+            left: 65%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            
+            h1 {
+                line-height: 35px;
+            }
+            
+            p {
+                margin-top: 5px;
+                max-width: 150px;
+            }
+        }
+    }
+
+    &-products {
+        text-align: center;
+
+        h2 {
+            margin: 20px 0;
+        }
+
+        hr {
+            width: 40px;
+            margin: 20px auto;
+            border: 1px solid #2c2729;
+            border-radius: 10px;
+        }
+
+        &-container {
+            p {
+                max-width: 350px;
+                margin: auto;
+            }
+            
+            div a {
+                display: inline-block;
+                box-shadow: 0px 4px 9px -2px #ccc;
+                text-decoration: none;
+                color: #2c2729;
+                margin-bottom: 40px;
+                
+                img {
+                    width: 300px;
+                }
+
+                hr {
+                    display: none;
+                }
+
+                h4 {
+                    max-width: 150px;
+                    margin: auto;
+                }
+
+                p {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    &-sponsors {
+        text-align: center;
+        margin-top: 80px;
+        div {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            img {
+                align-self: center;
+                width: 100px;
+            }
+        }
+    }
+
+    &-socialMedias {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 0;
+        
+        div {
+            height: 200px;
+
+            img {
+                height: 100%;
+                width: 20%;
+                object-fit: cover;
+            }
+
+        }
+
+        svg {
+            margin: 10px;
+            font-size: 20px;
+            color: #2c2729;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .homePage {
+        &-header {
+            div {
+                width: 30%;
+                left: 60%; 
+
+                h1 {
+                    line-height: 40px;
+                }
+            }
+        }
+    
+        &-products {    
+            &-container {
+                padding: 0 50px;
+                &-cocktails {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 10px 60px;
+                }
+            }
+        }
+
+        &-sponsors {
+            div {
+                img {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .homePage {
+        &-header {
+            div {
+                width: 20%;
+                left: 55%; 
+
+                h1 {
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .homePage {
+        &-header {
+            div {
+                h1 {
+                    line-height: 45px;
+                }
+
+                p {
+                    max-width: 200px;
+                }
+            }
+        }
+
+        &-sponsors {
+            div {
+                max-width: 1000px;
+                margin: auto;
+            }
+        }
+
+        &-socialMedias {            
+            div {
+                height: 300px;
+            }
+
+            svg {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .homePage {
+        &-header {
+            div {
+                h1 {
+                    line-height: 55px;
+                }
+
+                p {
+                    max-width: 250px;
+                }
+            }
+        }
+
+        &-sponsors {
+            div {
+                img {
+                    width: 200px;
+                }
+            }
+        }
+
+        &-socialMedias {            
+            div {
+                height: 400px;
+            }
+
+            svg {
+                font-size: 32px;
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+.checkoutPage {
+    background-color: white;
+
+    &-content {
+        padding: 10px;
+
+        
+        button {
+            margin-bottom: 20px;
+        }
+        
+        #goBack button {
+            width: 100px;
+        }
+
+        &-products {
+            &-product {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                margin-bottom: 20px;
+
+                img {
+                    width: 150px;
+                }
+            }
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 40px;
+
+            button {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .checkoutPage {
+        &-content {
+            padding: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .checkoutPage {        
+        &-content {
+            width: 80%;
+            margin: auto;
+
+            &-products {
+                &-product {
+                    img {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
