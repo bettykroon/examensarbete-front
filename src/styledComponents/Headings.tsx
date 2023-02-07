@@ -54,13 +54,13 @@ export const H4 = styled.h4`
 `
 
 export const P = styled.p`
-    font-size: 14px;
+    font-size: 16px;
 
     @media screen and (min-width: 992px) {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     @media screen and (min-width: 1200px) {
-        font-size: 20px;
+        font-size: 24px;
     }
 `
