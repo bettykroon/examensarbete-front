@@ -18,7 +18,7 @@ export function Admin(){
 
     const [ inventory, setInventory ] = useState<Inventory[]>([]);
     function getInventory(){
-        fetch("https://kroonscocktails.onrender.com/users", {
+        fetch("https://kroonscocktails.onrender.com/inventory", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export function Admin(){
     let products = inventory.map((product) => {
         return (
             <div className="product" key={product._id}>
-                {product.category === "cocktailkombo" ? <img src={require('../../images/' + product.category + '.jpg')} alt={product.drinkName} /> : <img src={require('../../images/' + product.drinkName + '.jpg')} alt={product.drinkName} />}
+                {product.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + product.category + '.jpg'} alt={product.drinkName} /> : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.drinkName) + '.jpg'} alt={product.drinkName} />}
                 <H4>{product.drinkName}</H4>
                 <P>{product.price} SEK</P>
                 <div>
@@ -50,7 +50,7 @@ export function Admin(){
     const [ cocktail, setCocktail ] = useState<ICocktail>({
         _id: '', 
         drinkName: 'Eldermoon', 
-        category: '', 
+        category: 'cocktailkuvert', 
         inStock: true, 
         quantity: 0, 
         visible: true,
@@ -79,7 +79,7 @@ export function Admin(){
     const [ showUpdateModule, setShowUpdateModule ] = useState(false);
     function toggleUpdateModule(drink: string){
         setShowUpdateModule(!showUpdateModule);
-        fetch("https://kroonscocktails.onrender.com/users/" + drink, {
+        fetch("https://kroonscocktails.onrender.com/inventory/" + drink, {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export function Admin(){
     }
 
     function updateProduct(){                
-        fetch("https://kroonscocktails.onrender.com/users/update", {
+        fetch("https://kroonscocktails.onrender.com/inventory/update", {
             method: "PUT",
             headers : { 
                 'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export function Admin(){
     function removeProduct(){
         let data = {id: productID};
 
-        fetch("https://kroonscocktails.onrender.com/users/remove", {
+        fetch("https://kroonscocktails.onrender.com/inventory/remove", {
             method: "PUT",
             headers : { 
                 'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ export function Admin(){
     const [ buttonText,  setButtonText ] = useState('Andra cocktails');
     const [ headerText,  setHeaderText ] = useState('Nuvarande drinkar i lager');
     function showOtherCocktails() {
-        fetch("https://kroonscocktails.onrender.com/users/notAvailable", {
+        fetch("https://kroonscocktails.onrender.com/inventory/notAvailable", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -163,35 +163,38 @@ export function Admin(){
         window.location.href = "/admin-login";
     }
 
-    /*const [file, setFile] = useState(null);
+    const [file, setFile] = useState('');
 
     const handleFileChange = (event: any) => {
         setFile(event.target.files[0]);
     };
 
     const handleUpload = () => {
-        // måste vänta tills hemsidan är live 
-        
-        if(file === null ) {
-            return;
-        } else {
-            console.log(file);
-            
-            const data = new Blob([file]);
-            const options = {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Content-Type': 'image/jpg'
-            }
-            };
-            fetch('', options)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error(error));
+        const formData = new FormData();
+        formData.append("image", file)
 
-        }
-    };*/
+        fetch("https://kroonscocktails.onrender.com/inventory/addNewCocktail", {
+            method: "POST",
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(cocktail)
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json)
+        })
+
+        fetch("https://kroonscocktails.onrender.com/admin/addImage", {
+            method: "POST",
+            body: formData
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json.fileUrl)
+        })
+    };
 
     return(<>
         {showAdminPage && <main className="adminPage">
@@ -278,10 +281,10 @@ export function Admin(){
                             <option value="false">Nej</option>
                         </select>
 
-                        {/*<input type="file" name="image" id="image" onChange={handleFileChange}/>*/}
+                        <input type="file" name="image" id="image" onChange={handleFileChange}/>
                         
                         <div className="module-container-buttons">
-                            {/*<Button onClick={handleUpload}>Lägg till</Button>*/}
+                            <Button onClick={handleUpload}>Lägg till</Button>
                             <Button onClick={() => setAddNewCocktailButton(false)}>Avbryt</Button>
                         </div>
                     </div>

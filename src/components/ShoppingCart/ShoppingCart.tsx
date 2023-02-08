@@ -23,7 +23,7 @@ export function ShoppingCart() {
         return(<tr key={product.cocktail._id}>
             <td>
                 <div className="product">
-                    {product.cocktail.category === "cocktailkombo" ? <img src={require('../../images/' + product.cocktail.category + '.jpg')} alt={product.cocktail.drinkName} /> : <img src={require('../../images/' + product.cocktail.drinkName + '.jpg')} alt={product.cocktail.drinkName} />}
+                    {product.cocktail.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + product.cocktail.category + '.jpg'} alt={product.cocktail.drinkName} /> : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.cocktail.drinkName) + '.jpg'} alt={product.cocktail.drinkName} />}
                     <H4>{product.cocktail.drinkName}</H4>
                 </div>
             </td>

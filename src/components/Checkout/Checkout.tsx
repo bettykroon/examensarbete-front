@@ -47,7 +47,7 @@ export function Checkout(){
 
     let products = productsInCart.map((product) => {
         return(<div className="checkoutPage-content-products-product" key={product.cocktail._id}>
-                    {product.cocktail.category === "cocktailkombo" ? <img src={require('../../images/' + product.cocktail.category + '.jpg')} alt={product.cocktail.drinkName} />  : <img src={require('../../images/' + product.cocktail.drinkName + '.jpg')} alt={product.cocktail.drinkName} />}
+                    {product.cocktail.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + product.cocktail.category + '.jpg'} alt={product.cocktail.drinkName} />  : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.cocktail.drinkName) + '.jpg'} alt={product.cocktail.drinkName} />}
                     <div>
                         <H3>{product.cocktail.drinkName}</H3>
                         <P>Antal: {product.amount}</P>

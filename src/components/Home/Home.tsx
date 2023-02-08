@@ -19,7 +19,7 @@ export function Home() {
     const [ inventory, setInventory ] = useState<Inventory[]>([]);
 
     useEffect(() => {
-        fetch("https://kroonscocktails.onrender.com/users", {
+        fetch("https://kroonscocktails.onrender.com/inventory", {
             method: "GET",
             headers : { 
                 'Content-Type': 'application/json',
@@ -28,6 +28,7 @@ export function Home() {
         })
         .then((response) => response.json())
         .then((json) => {
+            console.log(json)
             setInventory(json); 
         })
     }, [])
@@ -38,7 +39,7 @@ export function Home() {
             presentation = (
                 <Link to={`/${cocktailkombo.category}`} key={cocktailkombo._id}>
                     <div>
-                        <img src={require('../../images/' + cocktailkombo.category + '.jpg')} alt="Cocktail" />
+                        <img src={'https://kroonscocktails.onrender.com/uploads/' + cocktailkombo.category + '.jpg'} alt="Cocktail" />
                         <hr />
                         <H4>{cocktailkombo.drinkName}</H4>
                         <P>{cocktailkombo.price} SEK</P>
@@ -60,7 +61,7 @@ export function Home() {
             presentation = (
                 <Link to={`/${cocktailkuvert.drinkName}`} key={cocktailkuvert._id}>
                 <div>
-                    <img src={require('../../images/' + cocktailkuvert.drinkName + '.jpg')} alt="Cocktail" />
+                    <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(cocktailkuvert.drinkName) + '.jpg'} alt="Cocktail" />
                     <hr />
                     <H4>{cocktailkuvert.drinkName}</H4>
                     <P>{cocktailkuvert.price} SEK</P>
