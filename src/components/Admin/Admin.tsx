@@ -88,7 +88,6 @@ export function Admin(){
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json);
             setCocktail(json);
         })
     }
@@ -187,7 +186,6 @@ export function Admin(){
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
         })
 
         fetch("https://kroonscocktails.onrender.com/admin/addImage", {
@@ -196,7 +194,6 @@ export function Admin(){
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json.fileUrl)
         })
         window.location.reload();
     };

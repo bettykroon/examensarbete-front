@@ -28,7 +28,6 @@ export function Home() {
         })
         .then((response) => response.json())
         .then((json) => {
-            console.log(json)
             setInventory(json); 
         })
     }, [])

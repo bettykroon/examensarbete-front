@@ -15,7 +15,6 @@ export function NavBar() {
 
             let amount = 0;
             for (let i = 0; i < order.length; i++) {
-                console.log(order[i].amount)
                 amount += order[i].amount;
             }
             setProductsInCart(amount);
