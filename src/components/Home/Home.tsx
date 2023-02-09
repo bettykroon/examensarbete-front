@@ -39,7 +39,7 @@ export function Home() {
             presentation = (
                 <Link to={`/${cocktailkombo.category}`} key={cocktailkombo._id}>
                     <div>
-                        <img src={'https://kroonscocktails.onrender.com/uploads/' + cocktailkombo.category + '.jpg'} alt="Cocktail" />
+                        <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(cocktailkombo.drinkName) + '.jpg'} alt="Cocktail" />
                         <hr />
                         <H4>{cocktailkombo.drinkName}</H4>
                         <P>{cocktailkombo.price} SEK</P>
@@ -122,7 +122,7 @@ export function Home() {
             </div>
 
             <div className='homePage-socialMedias'>
-                <H3>Följ mig på social medier</H3>
+                <H3>Följ mig på sociala medier</H3>
                 <a href="https://www.instagram.com/kroonscocktails/?hl=sv" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={faInstagram}/></a>
                 <a href="https://www.facebook.com/Kroonscocktails/" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={faFacebookSquare}/></a>
 

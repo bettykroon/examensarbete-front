@@ -107,9 +107,9 @@ export function CocktailInfo(){
         }
 
         let promoteProducts = allCocktails.map((product) => {
-            return (<Link to={product.category === "cocktailkombo" ? `/${product.category}` : `/${product.drinkName}`} key={product._id}>
+            return (<Link to={`/${product.drinkName}`} key={product._id}>
                 <div>
-                    {product.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + product.category + '.jpg'} alt={product.drinkName} /> : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.drinkName) + '.jpg'} alt={product.drinkName} />}
+                    <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.drinkName) + '.jpg'} alt={product.drinkName} />
                     <H4>{product.drinkName}</H4>
                     <P>{product.price} SEK</P>
                 </div>
@@ -140,7 +140,7 @@ export function CocktailInfo(){
             <Link to='/'><Button><FontAwesomeIcon icon={faArrowLeftLong}/></Button></Link>
             <div className="cocktailInfo">
                 <div>
-                    {cocktail.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + cocktail.category + '.jpg'} alt={cocktail.drinkName} /> : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(cocktail.drinkName) + '.jpg'} alt={cocktail.drinkName} />}
+                    <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(cocktail.drinkName) + '.jpg'} alt={cocktail.drinkName} />
                 </div>
                 <div className="cocktailInfo-text">
                     <H2>{cocktail.drinkName}</H2>
@@ -155,7 +155,7 @@ export function CocktailInfo(){
         </div>
 
         <div className="cocktailInfoPage-youMightAlsoLike">
-            <H2>Du kankse också gillar</H2>
+            <H2>Du kanske också gillar</H2>
 
             <div className="otherProducts">{otherProducts()}</div>
         </div>

@@ -29,14 +29,14 @@ export function Admin(){
         .then((json) => {
             setInventory(json);
             setButtonText('Andra cocktails');
-            setHeaderText('Nuvarande drinkar i lager')
+            setHeaderText('Nuvarande drinkar i lager');
         })
     }
 
     let products = inventory.map((product) => {
         return (
             <div className="product" key={product._id}>
-                {product.category === "cocktailkombo" ? <img src={'https://kroonscocktails.onrender.com/uploads/' + product.category + '.jpg'} alt={product.drinkName} /> : <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.drinkName) + '.jpg'} alt={product.drinkName} />}
+                <img src={'https://kroonscocktails.onrender.com/uploads/' + encodeURIComponent(product.drinkName) + '.jpg'} alt={product.drinkName} />
                 <H4>{product.drinkName}</H4>
                 <P>{product.price} SEK</P>
                 <div>
@@ -164,9 +164,13 @@ export function Admin(){
     }
 
     const [file, setFile] = useState('');
+    const [ fileName, setFileName ] = useState('');
 
     const handleFileChange = (event: any) => {
         setFile(event.target.files[0]);
+
+        let nameOfFile = event.target.files[0].name.split(".jpg");
+        setFileName(nameOfFile[0]);
     };
 
     const handleUpload = () => {
@@ -194,6 +198,7 @@ export function Admin(){
         .then((json) => {
             console.log(json.fileUrl)
         })
+        window.location.reload();
     };
 
     return(<>
@@ -261,9 +266,9 @@ export function Admin(){
                         <label htmlFor="drinkName">Namn:</label>
                         <input type="text" name="drinkName" onChange={handleChange}/>
                         
-                        <select name="category" onChange={handleChange}>
-                            {cocktail.category === "cocktailkombo" ? <option value="cocktailkombo">Cocktailkombo</option> : <option value="cocktailkuvert">Cocktailkuvert</option>}
-                            {cocktail.category !== "cocktailkombo" ? <option value="cocktailkombo">Cocktailkombo</option> : <option value="cocktailkuvert">Cocktailkuvert</option>}
+                        <select value={cocktail.category} name="category" onChange={handleChange}>
+                            <option value="cocktailkombo">Cocktailkombo</option>
+                            <option value="cocktailkuvert">Cocktailkuvert</option>
                         </select>
 
                         <label htmlFor="description">Beskrivning</label>
@@ -282,9 +287,10 @@ export function Admin(){
                         </select>
 
                         <input type="file" name="image" id="image" onChange={handleFileChange}/>
+                        {fileName !== cocktail.drinkName && <p>Bilden måste ha samma namn som drinken</p>}
                         
                         <div className="module-container-buttons">
-                            <Button onClick={handleUpload}>Lägg till</Button>
+                            <Button disabled={fileName !== cocktail.drinkName} onClick={handleUpload}>Lägg till</Button>
                             <Button onClick={() => setAddNewCocktailButton(false)}>Avbryt</Button>
                         </div>
                     </div>
